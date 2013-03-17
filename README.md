@@ -7,7 +7,7 @@ Simple application that stores and has ability to change IPv4 network settings.
 
 * I use VisualStudio 2010
 * Application uses .NET 4.0
-* Rename config.json.sample to config.json and place in same folder with application
+* Rename `settings.json.sample` to `settings.json` and place in same folder with application
 * Run application as administator if you want to be able to change network settings
 
 ## ToDo

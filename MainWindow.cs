@@ -18,6 +18,7 @@ namespace Lab_2
         private bool saveDataLocked = false;
         private ManagementObjectCollection adapters;
         private IpCtrl ctrl = new IpCtrl();
+        private String settingsFileName = "settings.json";
 
         public MainWindow()
         {
@@ -202,7 +203,7 @@ namespace Lab_2
             int counter = 0;
             // load data            
 
-            System.IO.StreamReader file = new System.IO.StreamReader("config.json");
+            System.IO.StreamReader file = new System.IO.StreamReader(settingsFileName);
             while ((line = file.ReadLine()) != null)
             {   
                 if (counter == listBox1.SelectedIndex)
@@ -229,7 +230,7 @@ namespace Lab_2
         {
             string line;
 
-            StreamReader file = new StreamReader("config.json");
+            StreamReader file = new StreamReader(settingsFileName);
             while ((line = file.ReadLine()) != null)
             {
                 // decompress from JSON
@@ -343,7 +344,7 @@ namespace Lab_2
             if (appended)
             {
                 // TODO: check if file is not blocked
-                using (StreamWriter log_file = File.AppendText("config.txt"))
+                using (StreamWriter log_file = File.AppendText(settingsFileName))
                 {
                     log_file.WriteLine();
                     log_file.Write(hd_json);
@@ -352,7 +353,7 @@ namespace Lab_2
             }
             else
             {
-                string[] data = File.ReadAllLines("config.txt");
+                string[] data = File.ReadAllLines(settingsFileName);
                 string data_new = "";
                 if (listBox1.SelectedIndex >= 0)
                 {
@@ -370,7 +371,7 @@ namespace Lab_2
                         if (i < data.Length - 1)
                             data_new += Environment.NewLine;
                     }
-                    File.WriteAllText("config.txt", data_new);
+                    File.WriteAllText(settingsFileName, data_new);
                 }
             }
             saveDataLocked = false;
@@ -382,7 +383,7 @@ namespace Lab_2
                 return;
             saveDataLocked = true;
 
-            string[] data = File.ReadAllLines("config.txt");
+            string[] data = File.ReadAllLines(settingsFileName);
             string data_new = "";
             if (index >= 0)
             {
@@ -395,7 +396,7 @@ namespace Lab_2
                             data_new += Environment.NewLine;
                     }                    
                 }
-                File.WriteAllText("config.txt", data_new);
+                File.WriteAllText(settingsFileName, data_new);
             }
 
             saveDataLocked = false;
