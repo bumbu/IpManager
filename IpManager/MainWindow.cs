@@ -417,10 +417,10 @@ namespace IpConfig {
     [DataContract]
     class HostData {
         [DataMember]
-        internal bool auto_addr;
+        internal string name;
 
         [DataMember]
-        internal string name;
+        internal bool auto_addr;
 
         [DataMember]
         internal string ip;
