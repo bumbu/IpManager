@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace Lab_2
+namespace IpConfig
 {
     static class Program
     {

@@ -26,8 +26,7 @@ public class IpCtrl {
         setDNS (mo, new string[]{} );
     }
 
-    public void setIP (ManagementObject objMO,
-        string IPAddress, string SubnetMask, string Gateway) {
+    public void setIP (ManagementObject objMO, string IPAddress, string SubnetMask, string Gateway) {
         try {
             ManagementBaseObject objNewIP, objNewGate, objNewDns;
             objNewIP = objMO.GetMethodParameters("EnableStatic");
@@ -48,7 +47,6 @@ public class IpCtrl {
         }
         catch (Exception ex) {
             MessageBox.Show("Unable to Set IP : " + ex.Message);
-
         }
     }
 
@@ -101,4 +99,5 @@ public class IpCtrl {
     }
 
     public IpCtrl () { }
+
 }

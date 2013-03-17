@@ -1,4 +1,4 @@
-﻿namespace Lab_2
+﻿namespace IpConfig
 {
     partial class MainWindow
     {
