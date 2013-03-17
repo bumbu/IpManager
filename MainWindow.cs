@@ -202,7 +202,7 @@ namespace Lab_2
             int counter = 0;
             // load data            
 
-            System.IO.StreamReader file = new System.IO.StreamReader("config.txt");
+            System.IO.StreamReader file = new System.IO.StreamReader("config.json");
             while ((line = file.ReadLine()) != null)
             {   
                 if (counter == listBox1.SelectedIndex)

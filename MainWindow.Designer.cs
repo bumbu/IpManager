@@ -109,7 +109,7 @@
             this.listBox1.ItemHeight = 18;
             this.listBox1.Location = new System.Drawing.Point(12, 12);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(179, 310);
+            this.listBox1.Size = new System.Drawing.Size(179, 274);
             this.listBox1.TabIndex = 10;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -176,7 +176,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(335, 294);
+            this.button2.Location = new System.Drawing.Point(12, 294);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(83, 28);
             this.button2.TabIndex = 9;
@@ -187,7 +187,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(201, 294);
+            this.button3.Location = new System.Drawing.Point(128, 294);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(63, 28);
             this.button3.TabIndex = 8;
@@ -257,7 +257,7 @@
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // Form1
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -274,7 +274,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form1";
+            this.Name = "MainWindow";
             this.Text = "Administrarea retelelor";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
