@@ -23,9 +23,14 @@ namespace Lab_2
         public MainWindow()
         {
             InitializeComponent();
+
+            Bitmap bmp = IpManager.Properties.Resources.icon;
+            this.Icon = Icon.FromHandle(bmp.GetHicon());
+
             loadConfig();
             if (listBox1.Items.Count > 0)
                 listBox1.SelectedIndex = 0;
+
 
             adapters = ctrl.getAdapters();
         }
