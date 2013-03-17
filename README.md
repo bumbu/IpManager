@@ -5,8 +5,10 @@ Simple application that stores and has ability to change IPv4 network settings.
 
 ## Prerequisites
 
-* VisualStudio 2010
-* .NET 4.0
+* VisualStudio 2012
+* .NET 4.5
+
+> For VS2010 and .NET 4.0 look in branch old
 
 ## How to run
 
