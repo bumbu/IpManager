@@ -13,7 +13,7 @@ Simple application that stores and has ability to change IPv4 network settings.
 ## ToDo
 
 * Select device/interface for which IP settings are changing
-* Ability to reorder elements
-* Check validity of data
 * Store data into cloud
+* Check validity of data
+* Ability to reorder elements using Drag&Drop
 * Add suppost for IPv6
