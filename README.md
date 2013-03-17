@@ -3,12 +3,16 @@
 Simple application that stores and has ability to change IPv4 network settings.
 ![Application screen](https://github.com/bumbu/IpManager/blob/master/images/screen.png?raw=true)
 
-## Build and run
+## Prerequisites
 
-* I use VisualStudio 2010
-* Application uses .NET 4.0
-* Rename `settings.json.sample` to `settings.json` and place in same folder with application
-* Run application as administator if you want to be able to change network settings
+* VisualStudio 2010
+* .NET 4.0
+
+## How to run
+
+* Clone the repository and open the Visual Studio solution
+* Rename `settings.json.sample` to `settings.json` and place in the same folder with application
+* Build and run _(run as administator in order to be able to change network settings)_
 
 ## ToDo
 
