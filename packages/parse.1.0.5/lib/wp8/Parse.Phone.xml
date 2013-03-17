@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parse.Phone</name>
+    </assembly>
+    <members>
+        <member name="T:Parse.ParseFacebookUtils">
+            <summary>
+            Provides a set of utilities for using Parse with Facebook.
+            </summary>
+        </member>
+        <member name="M:Parse.ParseFacebookUtils.Initialize(System.String)">
+            <summary>
+            Initializes Facebook for use with Parse.
+            </summary>
+            <param name="applicationId">Your Facebook application ID.</param>
+        </member>
+        <member name="M:Parse.ParseFacebookUtils.LogInAsync(System.String,System.String,System.DateTime,System.Threading.CancellationToken)">
+            <summary>
+            Logs in a <see cref="T:Parse.ParseUser"/> using Facebook for authentication. If a user for the
+            given Facebook credentials does not already exist, a new user will be created.
+            </summary>
+            <param name="facebookId">The user's Facebook ID.</param>
+            <param name="accessToken">A valid access token for the user.</param>
+            <param name="expiration">The expiration date of the access token.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The user that was either logged in or created.</returns>
+        </member>
+        <member name="M:Parse.ParseFacebookUtils.LogInAsync(System.String,System.String,System.DateTime)">
+            <summary>
+            Logs in a <see cref="T:Parse.ParseUser"/> using Facebook for authentication. If a user for the
+            given Facebook credentials does not already exist, a new user will be created.
+            </summary>
+            <param name="facebookId">The user's Facebook ID.</param>
+            <param name="accessToken">A valid access token for the user.</param>
+            <param name="expiration">The expiration date of the access token.</param>
+            <returns>The user that was either logged in or created.</returns>
+        </member>
+        <member name="M:Parse.ParseFacebookUtils.LinkAsync(Parse.ParseUser,System.String,System.String,System.DateTime,System.Threading.CancellationToken)">
+            <summary>
+            Links a <see cref="T:Parse.ParseUser"/> to a Facebook account, allowing you to use Facebook
+            for authentication, and providing access to Facebook data for the user.
+            </summary>
+            <param name="user">The user to link to a Facebook account.</param>
+            <param name="facebookId">The user's Facebook ID.</param>
+            <param name="accessToken">A valid access token for the user.</param>
+            <param name="expiration">The expiration date of the access token.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:Parse.ParseFacebookUtils.LinkAsync(Parse.ParseUser,System.String,System.String,System.DateTime)">
+            <summary>
+            Links a <see cref="T:Parse.ParseUser"/> to a Facebook account, allowing you to use Facebook
+            for authentication, and providing access to Facebook data for the user.
+            </summary>
+            <param name="user">The user to link to a Facebook account.</param>
+            <param name="facebookId">The user's Facebook ID.</param>
+            <param name="accessToken">A valid access token for the user.</param>
+            <param name="expiration">The expiration date of the access token.</param>
+        </member>
+        <member name="M:Parse.ParseFacebookUtils.IsLinked(Parse.ParseUser)">
+            <summary>
+            Gets whether the given user is linked to a Facebook account. This can only be used on
+            the currently authorized user.
+            </summary>
+            <param name="user">The user to check.</param>
+            <returns><c>true</c> if the user is linked to a Facebook account.</returns>
+        </member>
+        <member name="M:Parse.ParseFacebookUtils.UnlinkAsync(Parse.ParseUser,System.Threading.CancellationToken)">
+            <summary>
+            Unlinks a user from a Facebook account. Unlinking a user will save the user's data.
+            </summary>
+            <param name="user">The user to unlink.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:Parse.ParseFacebookUtils.UnlinkAsync(Parse.ParseUser)">
+            <summary>
+            Unlinks a user from a Facebook account. Unlinking a user will save the user's data.
+            </summary>
+            <param name="user">The user to unlink.</param>
+        </member>
+        <member name="M:Parse.ParseFacebookUtils.LogInAsync(Microsoft.Phone.Controls.WebBrowser,System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+            <summary>
+            Logs in a <see cref="T:Parse.ParseUser"/> using Facebook for authentication . If a user for the
+            given Facebook credentials does not already exist, a new user will be created.
+            
+            The user will be logged in through Facebook's OAuth web flow, so you must supply a
+            <paramref name="webView"/> that will be navigated to Facebook's authentication pages.
+            </summary>
+            <param name="webView">A web view that will be used to present the authorization pages
+            to the user.</param>
+            <param name="permissions">A list of Facebook permissions to request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The user that was either logged in or created.</returns>
+        </member>
+        <member name="M:Parse.ParseFacebookUtils.LinkAsync(Parse.ParseUser,Microsoft.Phone.Controls.WebBrowser,System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+            <summary>
+            Links a <see cref="T:Parse.ParseUser"/> to a Facebook account, allowing you to use Facebook
+            for authentication, and providing access to Facebook datta for the user.
+            
+            The user will be logged in through Facebook's OAuth web flow, so you must supply a
+            <paramref name="webView"/> that will be navigated to Facebook's authentication pages.
+            </summary>
+            <param name="user">The user to link with Facebook.</param>
+            <param name="webView">A web view that will be used to present the authorization pages
+            to the user.</param>
+            <param name="permissions">A list of Facebook permissions to request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:Parse.ParseFacebookUtils.LogInAsync(Microsoft.Phone.Controls.WebBrowser,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Logs in a <see cref="T:Parse.ParseUser"/> using Facebook for authentication . If a user for the
+            given Facebook credentials does not already exist, a new user will be created.
+            
+            The user will be logged in through Facebook's OAuth web flow, so you must supply a
+            <paramref name="webView"/> that will be navigated to Facebook's authentication pages.
+            </summary>
+            <param name="webView">A web view that will be used to present the authorization pages
+            to the user.</param>
+            <param name="permissions">A list of Facebook permissions to request.</param>
+            <returns>The user that was either logged in or created.</returns>
+        </member>
+        <member name="M:Parse.ParseFacebookUtils.LinkAsync(Parse.ParseUser,Microsoft.Phone.Controls.WebBrowser,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Links a <see cref="T:Parse.ParseUser"/> to a Facebook account, allowing you to use Facebook
+            for authentication, and providing access to Facebook datta for the user.
+            
+            The user will be logged in through Facebook's OAuth web flow, so you must supply a
+            <paramref name="webView"/> that will be navigated to Facebook's authentication pages.
+            </summary>
+            <param name="user">The user to link with Facebook.</param>
+            <param name="webView">A web view that will be used to present the authorization pages
+            to the user.</param>
+            <param name="permissions">A list of Facebook permissions to request.</param>
+        </member>
+        <member name="P:Parse.ParseFacebookUtils.ApplicationId">
+            <summary>
+            Gets the Facebook Application ID as supplied to <see cref="M:Parse.ParseFacebookUtils.Initialize(System.String)"/>
+            </summary>
+        </member>
+        <member name="P:Parse.ParseFacebookUtils.AccessToken">
+            <summary>
+            Gets the access token for the currently logged in Facebook user.  This can be used with a
+            Facebook SDK to get access to Facebook user data.
+            </summary>
+        </member>
+        <member name="P:Parse.PlatformHooks.ApplicationSettings">
+            <summary>
+            Provides a dictionary that gets persisted on the filesystem between runs of the app.
+            This is analogous to NSUserDefaults in iOS.
+            </summary>
+        </member>
+        <member name="T:Parse.PlatformHooks.SettingsWrapper">
+            <summary>
+            Wraps the custom settings object for Parse so that it can be exposed as ApplicationSettings.
+            </summary>
+        </member>
+    </members>
+</doc>
