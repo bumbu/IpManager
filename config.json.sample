@@ -1,0 +1,4 @@
+{"auto_addr":false,"auto_dns":false,"dns":"8.8.8.8","dns2":"8.8.4.4","ip":"10.1.11.66","mask":"255.255.255.0","name":"Labs D","submask":"10.1.11.1"}
+{"auto_addr":true,"auto_dns":true,"dns":"","dns2":"","ip":"","mask":"","name":"All auto","submask":""}
+{"auto_addr":true,"auto_dns":false,"dns":"8.8.8.8","dns2":"8.8.4.4","ip":"","mask":"","name":"Google DNSes","submask":""}
+{"auto_addr":false,"auto_dns":false,"dns":"8.8.8.8","dns2":"8.8.4.4","ip":"1.1.1.1","mask":"255.0.0.0","name":"Item 4","submask":""}

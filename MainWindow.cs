@@ -229,7 +229,7 @@ namespace Lab_2
         {
             string line;
 
-            StreamReader file = new StreamReader("config.txt");
+            StreamReader file = new StreamReader("config.json");
             while ((line = file.ReadLine()) != null)
             {
                 // decompress from JSON
