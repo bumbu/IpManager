@@ -40,16 +40,26 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.listToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeSelectedItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cloudToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadFromCloudToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pushActiveItemToCloudToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBoxHidden = new System.Windows.Forms.TextBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
@@ -95,7 +105,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(438, 294);
+            this.button1.Location = new System.Drawing.Point(439, 313);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 28);
             this.button1.TabIndex = 7;
@@ -108,9 +118,9 @@
             this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 18;
-            this.listBox1.Location = new System.Drawing.Point(12, 12);
+            this.listBox1.Location = new System.Drawing.Point(12, 31);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(179, 274);
+            this.listBox1.Size = new System.Drawing.Size(179, 310);
             this.listBox1.TabIndex = 10;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
@@ -175,28 +185,6 @@
             this.label5.Text = "Alternative DNS:";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(12, 294);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(83, 28);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Remove";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(128, 294);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(63, 28);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "New";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.textBox1);
@@ -206,7 +194,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(201, 39);
+            this.groupBox1.Location = new System.Drawing.Point(202, 58);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(348, 119);
             this.groupBox1.TabIndex = 12;
@@ -220,7 +208,7 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.textBox5);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(201, 198);
+            this.groupBox2.Location = new System.Drawing.Point(202, 217);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(348, 87);
             this.groupBox2.TabIndex = 14;
@@ -231,7 +219,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox1.Location = new System.Drawing.Point(207, 12);
+            this.checkBox1.Location = new System.Drawing.Point(208, 31);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(188, 21);
             this.checkBox1.TabIndex = 16;
@@ -243,7 +231,7 @@
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox2.Location = new System.Drawing.Point(207, 171);
+            this.checkBox2.Location = new System.Drawing.Point(208, 190);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(166, 21);
             this.checkBox2.TabIndex = 17;
@@ -253,16 +241,70 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listToolStripMenuItem,
+            this.cloudToolStripMenuItem,
+            this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(561, 24);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // listToolStripMenuItem
+            // 
+            this.listToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewItemToolStripMenuItem,
+            this.removeSelectedItemToolStripMenuItem});
+            this.listToolStripMenuItem.Name = "listToolStripMenuItem";
+            this.listToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.listToolStripMenuItem.Text = "List";
+            // 
+            // addNewItemToolStripMenuItem
+            // 
+            this.addNewItemToolStripMenuItem.Name = "addNewItemToolStripMenuItem";
+            this.addNewItemToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.addNewItemToolStripMenuItem.Text = "Add new item";
+            this.addNewItemToolStripMenuItem.Click += new System.EventHandler(this.addNewItemToolStripMenuItem_Click);
+            // 
+            // removeSelectedItemToolStripMenuItem
+            // 
+            this.removeSelectedItemToolStripMenuItem.Name = "removeSelectedItemToolStripMenuItem";
+            this.removeSelectedItemToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.removeSelectedItemToolStripMenuItem.Text = "Remove selected item";
+            this.removeSelectedItemToolStripMenuItem.Click += new System.EventHandler(this.removeSelectedItemToolStripMenuItem_Click);
+            // 
+            // cloudToolStripMenuItem
+            // 
+            this.cloudToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadFromCloudToolStripMenuItem,
+            this.pushActiveItemToCloudToolStripMenuItem});
+            this.cloudToolStripMenuItem.Name = "cloudToolStripMenuItem";
+            this.cloudToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.cloudToolStripMenuItem.Text = "Cloud";
+            // 
+            // loadFromCloudToolStripMenuItem
+            // 
+            this.loadFromCloudToolStripMenuItem.Name = "loadFromCloudToolStripMenuItem";
+            this.loadFromCloudToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.loadFromCloudToolStripMenuItem.Text = "Load from cloud";
+            // 
+            // pushActiveItemToCloudToolStripMenuItem
+            // 
+            this.pushActiveItemToCloudToolStripMenuItem.Name = "pushActiveItemToCloudToolStripMenuItem";
+            this.pushActiveItemToCloudToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.pushActiveItemToCloudToolStripMenuItem.Text = "Send active item to cloud";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
+            // 
             // textBoxHidden
             // 
             this.textBoxHidden.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxHidden.Location = new System.Drawing.Point(13, 261);
+            this.textBoxHidden.Location = new System.Drawing.Point(13, 315);
             this.textBoxHidden.Name = "textBoxHidden";
             this.textBoxHidden.Size = new System.Drawing.Size(177, 24);
             this.textBoxHidden.TabIndex = 19;
@@ -270,18 +312,41 @@
             this.textBoxHidden.Leave += new System.EventHandler(this.textBoxHidden_Leave);
             this.textBoxHidden.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.textBoxHidden_PreviewKeyDown);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripProgressBar1,
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 350);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(561, 22);
+            this.statusStrip1.TabIndex = 20;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
+            this.toolStripProgressBar1.Visible = false;
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Visible = false;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(561, 334);
+            this.ClientSize = new System.Drawing.Size(561, 372);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.textBoxHidden);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
@@ -294,6 +359,10 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,8 +381,6 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -321,6 +388,16 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.TextBox textBoxHidden;
+        private System.Windows.Forms.ToolStripMenuItem listToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNewItemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeSelectedItemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cloudToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripMenuItem loadFromCloudToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pushActiveItemToCloudToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 

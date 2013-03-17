@@ -119,8 +119,17 @@ namespace IpConfig {
             }
         }
 
+        // Menu items ===========================================
+
+        // Add new empty item to list
+        private void addNewItemToolStripMenuItem_Click(object sender, EventArgs e) {
+            addNewListElement();
+            clearTextFields();
+            saveData(true);
+        }
+
         // Remove an item from the list
-        private void button2_Click(object sender, EventArgs e) {
+        private void removeSelectedItemToolStripMenuItem_Click(object sender, EventArgs e) {
             if (MessageBox.Show("Are you sure?\nIt will erase the data permanently.", "Item removal", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
                 == DialogResult.Yes) {
                 int remove_id;
@@ -137,26 +146,6 @@ namespace IpConfig {
                     clearTextFields();
                 }
             }
-        }
-
-        // Add new empty item to list
-        private void button3_Click(object sender, EventArgs e) {
-            addNewListElement();
-            clearTextFields();
-            saveData(true);
-        }
-
-        // Add new element without name (called by user)
-        private void addNewListElement() {
-            listBox1.Items.Add("Item " + (listBox1.Items.Count + 1).ToString());
-            listBox1.SelectedIndex = listBox1.Items.Count - 1;
-            checkBox1.Checked = true;
-            checkBox2.Checked = true;
-        }
-
-        // Add new elemend with name (called by settings importer)
-        private void addNewListElement(string name = "") {
-            listBox1.Items.Add(name);
         }
 
         // ListBox  =========================================
@@ -194,6 +183,19 @@ namespace IpConfig {
         }
 
         // Functions  =========================================
+
+        // Add new element without name (called by user)
+        private void addNewListElement() {
+            listBox1.Items.Add("Item " + (listBox1.Items.Count + 1).ToString());
+            listBox1.SelectedIndex = listBox1.Items.Count - 1;
+            checkBox1.Checked = true;
+            checkBox2.Checked = true;
+        }
+
+        // Add new elemend with name (called by settings importer)
+        private void addNewListElement(string name = "") {
+            listBox1.Items.Add(name);
+        }
 
         private void loadConfigAndPopulateList() {
             string line;
