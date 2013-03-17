@@ -10,3 +10,4 @@ Simple application that stores and has ability to change IPv4 network settings.
 * Ability to rename and reorder elements
 * Check validity of data
 * Store data into cloud
+* Add suppost for IPv6
