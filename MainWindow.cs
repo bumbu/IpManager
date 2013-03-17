@@ -19,6 +19,7 @@ namespace Lab_2
         private ManagementObjectCollection adapters;
         private IpCtrl ctrl = new IpCtrl();
         private String settingsFileName = "settings.json";
+        private int lastEditedListItemIndex = -1;
 
         public MainWindow()
         {
@@ -92,6 +93,26 @@ namespace Lab_2
         {
             if (testData(textBox5.Text, "ip"))
                 saveData();
+        }
+
+        private void textBoxHidden_Leave(object sender, EventArgs e)
+        {
+            if (lastEditedListItemIndex >= 0)
+            {
+                listBox1.Items[lastEditedListItemIndex] = textBoxHidden.Text;
+                textBoxHidden.Visible = false;
+
+                saveData(false);
+            }
+        }
+
+        private void textBoxHidden_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Move focus to list box
+                listBox1.Focus();
+            }
         }
 
         // buttons  =========================================
@@ -206,7 +227,7 @@ namespace Lab_2
         {
             string line;
             int counter = 0;
-            // load data            
+            // load data
 
             System.IO.StreamReader file = new System.IO.StreamReader(settingsFileName);
             while ((line = file.ReadLine()) != null)
@@ -227,6 +248,28 @@ namespace Lab_2
             }
 
             file.Close();
+        }
+
+        // Ask for new title on double click
+        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int index = listBox1.IndexFromPoint(e.Location);
+            if (index != System.Windows.Forms.ListBox.NoMatches)
+            {
+                // Change input location
+                Point textBoxLocation = textBoxHidden.Location;
+                textBoxLocation.Y = listBox1.Location.Y + index * listBox1.ItemHeight;
+                textBoxHidden.Location = textBoxLocation;
+                // Change input value
+                textBoxHidden.Text = listBox1.Items[index].ToString();
+                // Display input
+                textBoxHidden.Visible = true;
+                // Focus input
+                textBoxHidden.Focus();
+
+                // Set global value of this item
+                lastEditedListItemIndex = index;
+            }
         }
 
         // functions  =========================================
@@ -319,6 +362,7 @@ namespace Lab_2
 
         private bool testData(string data, string type)
         {
+            // ToDo
             return true;
         }
 

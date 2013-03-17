@@ -47,6 +47,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.textBoxHidden = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -112,6 +113,7 @@
             this.listBox1.Size = new System.Drawing.Size(179, 274);
             this.listBox1.TabIndex = 10;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
             // 
             // textBox3
             // 
@@ -257,11 +259,23 @@
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // textBoxHidden
+            // 
+            this.textBoxHidden.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxHidden.Location = new System.Drawing.Point(13, 261);
+            this.textBoxHidden.Name = "textBoxHidden";
+            this.textBoxHidden.Size = new System.Drawing.Size(177, 24);
+            this.textBoxHidden.TabIndex = 19;
+            this.textBoxHidden.Visible = false;
+            this.textBoxHidden.Leave += new System.EventHandler(this.textBoxHidden_Leave);
+            this.textBoxHidden.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.textBoxHidden_PreviewKeyDown);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 334);
+            this.Controls.Add(this.textBoxHidden);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.groupBox2);
@@ -306,6 +320,7 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.TextBox textBoxHidden;
     }
 }
 
