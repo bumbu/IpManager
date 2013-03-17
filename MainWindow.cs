@@ -137,24 +137,24 @@ namespace Lab_2
             //}
         }
 
-        // erase item from list
+        // remove item from list
         private void button2_Click(object sender, EventArgs e)
         {
-            int remove_id;
-            if (listBox1.SelectedIndex >= 0)
+            if (MessageBox.Show("Are you sure?\nIt will erase the data permanently.", "Item removal", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                == DialogResult.Yes )
             {
-                remove_id = listBox1.SelectedIndex;
-                removeByIndex(remove_id);
-                listBox1.Items.Remove(listBox1.SelectedItem);
-            }
+                int remove_id;
+                if (listBox1.SelectedIndex >= 0) {
+                    remove_id = listBox1.SelectedIndex;
+                    removeByIndex(remove_id);
+                    listBox1.Items.Remove(listBox1.SelectedItem);
+                }
 
-            if (listBox1.Items.Count > 0)
-            {
-                listBox1.SelectedIndex = listBox1.Items.Count - 1;
-            }
-            else
-            {
-                clearTextFields();
+                if (listBox1.Items.Count > 0) {
+                    listBox1.SelectedIndex = listBox1.Items.Count - 1;
+                } else {
+                    clearTextFields();
+                }
             }
         }
 
