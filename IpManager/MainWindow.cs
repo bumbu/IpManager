@@ -132,20 +132,13 @@ namespace IpConfig {
         private void removeSelectedItemToolStripMenuItem_Click(object sender, EventArgs e) {
             if (MessageBox.Show("Are you sure?\nIt will erase the data permanently.", "Item removal", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
                 == DialogResult.Yes) {
-                int remove_id;
-
-                if (listBox1.SelectedIndex >= 0) {
-                    remove_id = listBox1.SelectedIndex;
-                    removeByIndex(remove_id);
-                    listBox1.Items.Remove(listBox1.SelectedItem);
-                }
-
-                if (listBox1.Items.Count > 0) {
-                    listBox1.SelectedIndex = listBox1.Items.Count - 1;
-                } else {
-                    clearTextFields();
-                }
+                removeSelectedListItem();
             }
+        }
+
+        // About
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {
+            MessageBox.Show("For details go to https://github.com/bumbu/IpManager", "About application", MessageBoxButtons.OK);
         }
 
         // ListBox  =========================================
@@ -362,6 +355,19 @@ namespace IpConfig {
             }
 
             writeDataLocked = false;
+        }
+
+        private void removeSelectedListItem() {
+            if (listBox1.SelectedIndex >= 0) {
+                removeByIndex(listBox1.SelectedIndex);
+                listBox1.Items.Remove(listBox1.SelectedItem);
+            }
+
+            if (listBox1.Items.Count > 0) {
+                listBox1.SelectedIndex = listBox1.Items.Count - 1;
+            } else {
+                clearTextFields();
+            }
         }
 
         private void removeByIndex(int index) {
