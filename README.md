@@ -1,7 +1,7 @@
 # IpManager
 
 Simple application that stores and has ability to change IPv4 network settings.
-![Application screen](https://raw.github.com/bumbu/IpManager/images/screen.png)
+![Application screen](https://github.com/bumbu/IpManager/blob/master/images/screen.png?raw=true)
 
 ## ToDo
 
