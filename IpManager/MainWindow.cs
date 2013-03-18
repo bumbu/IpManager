@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Parse;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,7 @@ using System.Management;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace IpConfig {
     public partial class MainWindow : Form {
@@ -59,27 +61,27 @@ namespace IpConfig {
 
         private void textBox1_TextChanged(object sender, EventArgs e) {
             if (testData(textBox1.Text, "ip"))
-                saveData();
+                parseInputsAndSaveData();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e) {
             if (testData(textBox2.Text, "mask"))
-                saveData();
+                parseInputsAndSaveData();
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e) {
             if (testData(textBox3.Text, "submask"))
-                saveData();
+                parseInputsAndSaveData();
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e) {
             if (testData(textBox4.Text, "ip"))
-                saveData();
+                parseInputsAndSaveData();
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e) {
             if (testData(textBox5.Text, "ip"))
-                saveData();
+                parseInputsAndSaveData();
         }
 
         private void textBoxHidden_Leave(object sender, EventArgs e) {
@@ -87,7 +89,7 @@ namespace IpConfig {
                 listBox1.Items[lastEditedListItemIndex] = textBoxHidden.Text;
                 textBoxHidden.Visible = false;
 
-                saveData(false);
+                parseInputsAndSaveData();
             }
         }
 
@@ -125,7 +127,7 @@ namespace IpConfig {
         private void addNewItemToolStripMenuItem_Click(object sender, EventArgs e) {
             addNewListElement();
             clearTextFields();
-            saveData(true);
+            parseInputsAndSaveData(true);
         }
 
         // Remove an item from the list
@@ -134,6 +136,12 @@ namespace IpConfig {
                 == DialogResult.Yes) {
                 removeSelectedListItem();
             }
+        }
+
+        // Load data from cloud
+        private void loadFromCloudToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadListFromCloud();
         }
 
         // About
@@ -304,11 +312,7 @@ namespace IpConfig {
             return true;
         }
 
-        private void saveData(bool appended = false) {
-            if (writeDataLocked)
-                return;
-            writeDataLocked = true;
-
+        private void parseInputsAndSaveData(bool appended = false) {
             HostData hd = new HostData();
             if (listBox1.SelectedIndex >= 0)
                 hd.name = listBox1.SelectedItem.ToString();
@@ -321,6 +325,14 @@ namespace IpConfig {
             hd.dns2 = textBox5.Text;
             hd.auto_addr = checkBox1.Checked;
             hd.auto_dns = checkBox2.Checked;
+
+            saveData(hd, appended);
+        }
+
+        private void saveData(HostData hd, bool appended = false) {
+            if (writeDataLocked)
+                return;
+            writeDataLocked = true;
 
             DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(HostData));
             MemoryStream ms = new MemoryStream();
@@ -412,6 +424,39 @@ namespace IpConfig {
             }
         }
 
+        public async Task LoadListFromCloud() {
+            try {
+                var query = from gameScore in ParseObject.GetQuery("Settings")
+                            where gameScore.Get<string>("name") != ""
+                            select gameScore;
+                IEnumerable<ParseObject> results = await query.FindAsync();
+                foreach (ParseObject result in results) {
+                    HostData hd = new HostData();
+
+                    hd.name = result.Get<string>("name");
+
+                    hd.auto_addr = result.Get<bool>("auto_addr");
+                    if (!hd.auto_addr) {
+                        hd.ip = result.Get<string>("ip");
+                        hd.mask = result.Get<string>("mask");
+                        hd.submask = result.Get<string>("submask");
+                    }
+
+                    hd.auto_dns = result.Get<bool>("auto_dns");
+                    if (!hd.auto_dns) {
+                        hd.dns = result.Get<string>("dns");
+                        hd.dns2 = result.Get<string>("dns2");
+                    }
+
+                    saveData(hd, true);
+
+                    addNewListElement(hd.name);
+                }
+            } catch (Exception e) {
+                Console.WriteLine("{0} Exception caught.", e);
+            }
+        }
+
     }
 
     [DataContract]
@@ -420,24 +465,24 @@ namespace IpConfig {
         internal string name;
 
         [DataMember]
-        internal bool auto_addr;
+        internal bool auto_addr = false;
 
         [DataMember]
-        internal string ip;
+        internal string ip = "";
 
         [DataMember]
-        internal string mask;
+        internal string mask = "";
 
         [DataMember]
-        internal string submask;
+        internal string submask = "";
 
         [DataMember]
-        internal bool auto_dns;
+        internal bool auto_dns = false;
 
         [DataMember]
-        internal string dns;
+        internal string dns = "";
 
         [DataMember]
-        internal string dns2;
+        internal string dns2 = "";
     }
 }

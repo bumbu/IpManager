@@ -288,6 +288,7 @@
             this.loadFromCloudToolStripMenuItem.Name = "loadFromCloudToolStripMenuItem";
             this.loadFromCloudToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.loadFromCloudToolStripMenuItem.Text = "Load from cloud";
+            this.loadFromCloudToolStripMenuItem.Click += new System.EventHandler(this.loadFromCloudToolStripMenuItem_Click);
             // 
             // pushActiveItemToCloudToolStripMenuItem
             // 
